@@ -8,8 +8,8 @@ app.use(cors());
 // // app.use(middleware.addDataToRequest);
 // app.use("/get", require("./routes/getUsers"));
 app.use("/add", require("./routes/addUser"));
-// app.use("/delete", require("./routes/deleteUser"));
-// app.use("/update", require("./routes/updateUser"));
+app.use("/login", require("./routes/loginUser"));
+app.use("/savePicture", require("./routes/savePicture"));
 
 app.listen(process.env.PORT || 6001, () => {
   console.log("server running");

@@ -5,10 +5,10 @@ const asyncMySQL = require("../utils/connection");
 app.post("/", async (req, res) => {
   try {
     const results = await asyncMySQL(
-      `INSERT userdata (Username, Password) 
-          VALUES ('${req.body.username}',
-                  
-                   '${req.body.password}')`
+      `INSERT INTO artwork (userId, Name, Data) 
+          VALUES ('${req.body.userId}',
+                  '${req.body.pictureName}',
+                   '${req.body.pictureData}')`
     );
     res.send({ status: 1 });
   } catch (error) {
