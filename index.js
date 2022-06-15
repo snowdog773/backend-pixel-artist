@@ -8,8 +8,9 @@ app.use(cors());
 app.use("/add", require("./routes/addUser"));
 app.use("/login", require("./routes/loginUser"));
 app.use("/savePicture", require("./routes/savePicture"));
-app.use("/loadPicture", require("./routes/loadPicture"));
+app.use("/updatePicture", require("./routes/updatePicture"));
 app.use("/returnImage", require("./routes/returnImage"));
+app.use("/deletePicture", require("./routes/deletePicture"));
 
 app.listen(process.env.PORT || 6001, () => {
   console.log("server running");
