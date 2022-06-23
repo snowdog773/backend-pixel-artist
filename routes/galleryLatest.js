@@ -2,10 +2,12 @@ const express = require("express");
 const app = express.Router();
 const asyncMySQL = require("../utils/connection");
 
-app.post("/", async (req, res) => {
+app.get("/", async (req, res) => {
   try {
     const results = await asyncMySQL(
-      `DELETE FROM artwork WHERE name='${req.body.pictureName}' AND UserID='${req.body.userId}'`
+      `SELECT Name, Data FROM artwork
+      ORDER BY Timestamp DESC
+      LIMIT 5,5`
     );
     res.send(results);
   } catch (error) {

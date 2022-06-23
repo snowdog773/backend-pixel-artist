@@ -11,6 +11,7 @@ app.use("/savePicture", require("./routes/savePicture"));
 app.use("/updatePicture", require("./routes/updatePicture"));
 app.use("/returnImage", require("./routes/returnImage"));
 app.use("/deletePicture", require("./routes/deletePicture"));
+app.use("/galleryLatest", require("./routes/galleryLatest"));
 
 app.listen(process.env.PORT || 6001, () => {
   console.log("server running");

@@ -7,7 +7,8 @@ app.post("/", async (req, res) => {
     const results = await asyncMySQL(
       `SELECT Username, Password, userdata.ID, artwork.Name FROM userdata 
       LEFT JOIN artwork ON userdata.ID = artwork.userID
-      WHERE Username='${req.body.username}';`
+      WHERE Username=?;`,
+      [req.body.username]
     );
     !results[0]
       ? res.send({ status: 0, error: "username not found" })
@@ -19,7 +20,7 @@ app.post("/", async (req, res) => {
           name: results.map((e) => e.Name),
         })
       : //   generate JWT
-        // populate list of saved work
+
         res.send({ status: 0, error: "password incorrect" });
   } catch (error) {
     res.send(error);
