@@ -5,10 +5,8 @@ const asyncMySQL = require("../utils/connection");
 app.get("/", async (req, res) => {
   try {
     const results = await asyncMySQL(
-      `SELECT Name, Data, userID, Votes, artwork.ID, userdata.Username FROM artwork
-      LEFT JOIN userdata ON artwork.userID = userdata.ID
-      ORDER BY artwork.ID DESC
-      LIMIT 100`
+      `UPDATE artwork SET Votes = Votes + 1
+      WHERE ID = '${req.query.ID}'`
     );
     res.send(results);
   } catch (error) {
