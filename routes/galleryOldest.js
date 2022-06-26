@@ -2,13 +2,13 @@ const express = require("express");
 const app = express.Router();
 const asyncMySQL = require("../utils/connection");
 
-app.post("/", async (req, res) => {
+app.get("/", async (req, res) => {
   try {
     const results = await asyncMySQL(
-      `UPDATE artwork SET Data='${
-        req.body.pictureData
-      }', Last_edit='${Date.now()}'
-       WHERE Name='${req.body.pictureName}' AND userID='${req.body.userId}'`
+      `SELECT Name, Data, userID, Votes, artwork.ID, userdata.Username FROM artwork
+      LEFT JOIN userdata ON artwork.userID = userdata.ID
+      ORDER BY artwork.Last_edit ASC
+      LIMIT 100`
     );
     res.send(results);
   } catch (error) {

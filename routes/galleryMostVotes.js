@@ -7,7 +7,8 @@ app.get("/", async (req, res) => {
     const results = await asyncMySQL(
       `SELECT Name, Data, userID, Votes, artwork.ID, userdata.Username FROM artwork
       LEFT JOIN userdata ON artwork.userID = userdata.ID
-      ORDER BY artwork.Last_edit DESC
+      WHERE artwork.Last_edit >= '${req.query.timestamp}'
+      ORDER BY artwork.Votes DESC
       LIMIT 100`
     );
     res.send(results);

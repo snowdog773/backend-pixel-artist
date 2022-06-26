@@ -8,7 +8,7 @@ app.get("/", async (req, res) => {
       `SELECT Name, Data, userID, Votes, artwork.ID, userdata.Username FROM artwork
       LEFT JOIN userdata ON artwork.userID = userdata.ID
       WHERE userdata.Username = '${req.query.username}'
-      ORDER BY artwork.Timestamp DESC
+      ORDER BY artwork.Last_edit DESC
       LIMIT 100`
     );
     res.send(results);
