@@ -5,7 +5,8 @@ const asyncMySQL = require("../utils/connection");
 app.post("/", async (req, res) => {
   try {
     const results = await asyncMySQL(
-      `SELECT Data FROM artwork WHERE Name='${req.body.name}' AND UserID=${req.body.userId}`
+      `SELECT Data FROM artwork WHERE Name=? AND UserID=?`,
+      [req.body.name, req.body.userId]
     );
     res.send({ status: 1, results });
   } catch (error) {

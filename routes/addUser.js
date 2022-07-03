@@ -6,7 +6,8 @@ app.post("/", async (req, res) => {
   try {
     const results = await asyncMySQL(
       `INSERT INTO userdata (Username, Password) 
-      VALUES ('${req.body.username}', '${req.body.password}');`
+      VALUES (?,?);`,
+      [req.body.username, req.body.password]
     );
     res.send(results);
   } catch (error) {

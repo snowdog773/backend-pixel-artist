@@ -5,7 +5,8 @@ const asyncMySQL = require("../utils/connection");
 app.post("/", async (req, res) => {
   try {
     const results = await asyncMySQL(
-      `DELETE FROM artwork WHERE name='${req.body.pictureName}' AND UserID='${req.body.userId}'`
+      `DELETE FROM artwork WHERE name=? AND UserID=?`,
+      [req.body.pictureName, req.body.userId]
     );
     res.send(results);
   } catch (error) {

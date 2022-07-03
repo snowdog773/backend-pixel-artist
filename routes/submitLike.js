@@ -6,12 +6,14 @@ app.get("/", async (req, res) => {
   try {
     const results = await asyncMySQL(
       `UPDATE artwork SET Votes = Votes + 1
-      WHERE ID = '${req.query.pictureID}'
-      `
+      WHERE ID =?
+      `,
+      [req.query.pictureID]
     );
-    const results2 = await asyncMySQL(
+    await asyncMySQL(
       `INSERT INTO user_likes (UserID, ArtworkID)
-      VALUES ('${req.query.userID}','${req.query.pictureID}')`
+      VALUES (?,?)`,
+      [req.query.userID, req.query.pictureID]
     );
     res.send(results);
   } catch (error) {
