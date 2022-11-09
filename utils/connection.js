@@ -1,7 +1,7 @@
 const mysql = require("mysql");
 
 const connection = mysql.createConnection({
-  database: "pixel-artist",
+  database: "currency",
   user: "root",
   password: "",
   host: "localhost",
