@@ -6,5 +6,5 @@ This is the backend to my 20 Squared pixel artist project which was one of my ma
 
 Also please take the time to check out my portfolio and LinkedIn
 
-<https://jon.pitans.co.uk>
+<https://jon.pitans.co.uk> /n
 <https://www.linkedin.com/in/jon-pitans/>
