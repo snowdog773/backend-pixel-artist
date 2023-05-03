@@ -4,7 +4,10 @@ This is the backend to my 20 Squared pixel artist project which was one of my ma
 
 <https://github.com/snowdog773/react-pixel-artist>
 
-Also please take the time to check out my portfolio and LinkedIn
+Also please take the time to check out my portfolio
 
-<https://jon.pitans.co.uk> /n
+<https://jon.pitans.co.uk> 
+
+ and LinkedIn
+ 
 <https://www.linkedin.com/in/jon-pitans/>
