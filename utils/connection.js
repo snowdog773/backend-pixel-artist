@@ -1,10 +1,10 @@
 const mysql = require("mysql");
 
 const connection = mysql.createConnection({
+  host: process.env.DB_HOST || "mysql-master", // Internal Docker name
+  user: process.env.DB_USER || "root",
+  password: process.env.DB_PASSWORD, // This will pull from Docker ENV
   database: "pixel-artist",
-  user: "root",
-  password: "",
-  host: "localhost",
   port: 3306,
 });
 connection.connect();
