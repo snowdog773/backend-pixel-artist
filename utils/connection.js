@@ -10,6 +10,7 @@ const connection = mysql.createConnection({
 connection.connect();
 
 function asyncMySQL(query, params) {
+  console.log("Executing SQL query:", query, "with params:", params);
   return new Promise((resolve, reject) => {
     connection.query(query, params, (error, results) => {
       if (error) {
