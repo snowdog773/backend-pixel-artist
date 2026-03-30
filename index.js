@@ -18,5 +18,5 @@ app.use("/galleryByUsername", require("./routes/galleryByUsername"));
 app.use("/submitLike", require("./routes/submitLike"));
 
 app.listen(process.env.PORT || 6001, () => {
-  console.log("server running");
+  console.log("server running on port 6001");
 });
